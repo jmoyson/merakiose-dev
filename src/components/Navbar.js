@@ -39,7 +39,7 @@ const Navbar = class extends React.Component {
         aria-label='main-navigation'
       >
         <div className='container'>
-          <div className='navbar-brand left-burger'>
+          <div className='navbar-brand is-hidden-desktop left-burger'>
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target='navMenu'
@@ -59,19 +59,29 @@ const Navbar = class extends React.Component {
             id='navMenu'
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <div className='navbar-start'></div>
             <div className='navbar-center'>
+              <Link className='navbar-item' to='/'>
+                Accueil
+              </Link>
               <Link className='navbar-item' to='/about'>
                 À Propos
               </Link>
-              <Link className='navbar-item' to='/products'>
-                Coaching
+              <Link to='/' className='navbar-item' title='Logo'>
+                <img
+                  className='navbar-brand-image'
+                  src={logo}
+                  alt='MerakiOse'
+                  style={{ width: "176px" }}
+                />
               </Link>
               <Link className='navbar-item' to='/blog'>
                 Blog
               </Link>
+
+              <Link className='navbar-item' to='/products'>
+                Coaching
+              </Link>
             </div>
-            <div className='navbar-end'></div>
           </div>
         </div>
       </nav>

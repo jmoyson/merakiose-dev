@@ -13,22 +13,13 @@ $black: #2b2523
 .navbar-brand.left-burger .navbar-burger
   margin-left: 0
 
-// .navbar .container
-//   max-width: none
-//   margin-left: 1em
-//   margin-right: 1em
-
 .navbar .navbar-menu
   box-shadow: none !important
 
-.navbar-start
-  flex: 1
-
 .navbar-center
   @extend .navbar-start
-
-.navbar-end
-  flex: 1
+  margin-left: auto
+  text-align: center
 
 .content .taglist
   list-style: none
@@ -120,14 +111,15 @@ $menu-label-color: $white-ter
 .social
   padding: 2em
 .social a
-  padding: .5em .5em .3em .5em
-  border-radius: 1em
-  background-color: $white-ter
-  margin: .5em
-  width: 1em
-  height: 1em
   vertical-align: middle
   display: inline
+  .img
+    padding: .5em .5em .3em .5em
+    border-radius: 1em
+    background-color: $white-ter
+    margin: .5em
+    width: 1em
+    height: 1em
 
 // blog roll
 .blog-list-item.is-featured
@@ -153,3 +145,10 @@ $menu-label-color: $white-ter
     text-align: center
     max-width: 70%
     margin: 0 0 1em
+
++desktop
+  .navbar-brand
+    display: none
+
+.navbar-item img
+  max-height: none
