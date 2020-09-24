@@ -1,66 +1,51 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import Features from "../components/Features"
-import BlogRoll from "../components/BlogRoll"
 
-export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
-}) => (
+export const IndexPageTemplate = ({ image, title, subheading }) => (
   <div>
     <div
-      className='full-width-image margin-top-0'
+      className='full-width-image margin-top-2'
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
-        minHeight: "650px",
+        display: "flex",
+        justifyContent: "left",
+        alignItems: "flex-start",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          height: "150px",
-          lineHeight: "1",
-          justifyContent: "space-around",
-          alignItems: "left",
-          flexDirection: "column",
-        }}
-      >
-        <h1
-          className='has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen'
+      <div className='hero-column'>
+        <div
           style={{
-            boxShadow: "#dbaa66 0.5rem 0px 0px, #dbaa66 -0.5rem 0px 0px",
-            backgroundColor: "#dbaa66",
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em",
+            textAlign: "center",
           }}
         >
-          {title}
-        </h1>
-        <h3
-          className='has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen'
-          style={{
-            boxShadow: "#dbaa66 0.5rem 0px 0px, #dbaa66 -0.5rem 0px 0px",
-            backgroundColor: "#dbaa66",
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em",
-          }}
-        >
-          {subheading}
-        </h3>
+          <h1
+            className='title is-1 has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen'
+            style={{
+              color: "white",
+              lineHeight: "1",
+              padding: "0.25em",
+            }}
+          >
+            {title}
+          </h1>
+          <h3
+            className='subtitle is-3 has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen'
+            style={{
+              color: "white",
+              lineHeight: "1",
+              padding: "0.25em",
+            }}
+          >
+            {subheading}
+          </h3>
+        </div>
       </div>
     </div>
     <section className='section section--gradient'>
@@ -68,43 +53,7 @@ export const IndexPageTemplate = ({
         <div className='section'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <div className='content'>
-                <div className='content'>
-                  <div className='tile'>
-                    <h1 className='title'>{mainpitch.title}</h1>
-                  </div>
-                  <div className='tile'>
-                    <h3 className='subtitle'>{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className='columns'>
-                  <div className='column is-12'>
-                    <h3 className='has-text-weight-semibold is-size-2'>
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className='columns'>
-                  <div className='column is-12 has-text-centered'>
-                    <Link className='btn' to='/products'>
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className='column is-12'>
-                  <h3 className='has-text-weight-semibold is-size-2'>
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className='column is-12 has-text-centered'>
-                    <Link className='btn' to='/blog'>
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <div className='content'></div>
             </div>
           </div>
         </div>

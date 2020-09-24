@@ -39,7 +39,7 @@ $black: #2b2523
 // Helper Classes
 .full-width-image-container
   width: 100vw
-  height: 400px
+  height: 80vh
   position: relative
   left: 50%
   right: 50%
@@ -52,7 +52,7 @@ $black: #2b2523
 
 .full-width-image
   width: 100vw
-  height: 400px
+  height: 80vh
   background-size: cover
   background-position: bottom
   display: flex
@@ -128,7 +128,7 @@ $menu-label-color: $white-ter
   display: flex
   margin-bottom: 1em
 .blog-list-item .featured-thumbnail
-  flex-basis: 35%
+  flex-basis: 90%
   margin: 0 1.5em 0 0
 
 @import "~bulma"
@@ -145,10 +145,41 @@ $menu-label-color: $white-ter
     text-align: center
     max-width: 70%
     margin: 0 0 1em
+  .hero-column
+    width: 100%
+  .second-hero-column
+    display: none !important
+
++tablet
+  .hero-column
+    width: 100%
 
 +desktop
   .navbar-brand
     display: none
+  .hero-column
+    width: 50%
 
 .navbar-item img
   max-height: none
+
+.hero-column
+  height: 100%
+  padding: .5rem
+  backdrop-filter: blur(9px)
+  display: flex
+  align-items: center
+  justify-content: center
+
+.full-hero-column
+  backdrop-filter: blur(9px)
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+.title-blurred h1
+  color: white
+  padding: 2rem 4rem
+  backdrop-filter: blur(6px)

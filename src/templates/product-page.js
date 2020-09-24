@@ -2,103 +2,50 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import Features from "../components/Features"
-import Testimonials from "../components/Testimonials"
 import Pricing from "../components/Pricing"
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage"
 
-export const ProductPageTemplate = ({
-  image,
-  title,
-  heading,
-  description,
-  intro,
-  main,
-  testimonials,
-  fullImage,
-  pricing,
-}) => (
+export const ProductPageTemplate = ({ image, title, pricing }) => (
   <div className='content'>
     <div
-      className='full-width-image-container margin-top-0'
+      className='full-width-image margin-top-2'
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`,
+        backgroundPosition: `top left`,
+        backgroundAttachment: `fixed`,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        marginTop: "2rem",
       }}
     >
-      <h2
-        className='has-text-weight-bold is-size-1'
-        style={{
-          boxShadow: "0.5rem 0 0 #dbaa66, -0.5rem 0 0 #dbaa66",
-          backgroundColor: "#dbaa66",
-          color: "white",
-          padding: "1rem",
-        }}
-      >
-        {title}
-      </h2>
+      <div className='hero-column full-hero-column'>
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <h1
+            className='title is-1 has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen'
+            style={{
+              color: "white",
+              lineHeight: "1",
+              padding: "0.25em",
+            }}
+          >
+            {title}
+          </h1>
+        </div>
+      </div>
     </div>
     <section className='section section--gradient'>
       <div className='container'>
-        <div className='section'>
-          <div className='columns'>
-            <div className='column is-7 is-offset-1'>
-              <h3 className='has-text-weight-semibold is-size-2'>{heading}</h3>
-              <p>{description}</p>
-            </div>
-          </div>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <Features gridItems={intro.blurbs} />
-              <div className='columns'>
-                <div className='column is-7'>
-                  <h3 className='has-text-weight-semibold is-size-3'>
-                    {main.heading}
-                  </h3>
-                  <p>{main.description}</p>
-                </div>
-              </div>
-              <div className='tile is-ancestor'>
-                <div className='tile is-vertical'>
-                  <div className='tile'>
-                    <div className='tile is-parent is-vertical'>
-                      <article className='tile is-child'>
-                        <PreviewCompatibleImage imageInfo={main.image1} />
-                      </article>
-                    </div>
-                    <div className='tile is-parent'>
-                      <article className='tile is-child'>
-                        <PreviewCompatibleImage imageInfo={main.image2} />
-                      </article>
-                    </div>
-                  </div>
-                  <div className='tile is-parent'>
-                    <article className='tile is-child'>
-                      <PreviewCompatibleImage imageInfo={main.image3} />
-                    </article>
-                  </div>
-                </div>
-              </div>
-              <Testimonials testimonials={testimonials} />
-              <div
-                className='full-width-image-container'
-                style={{
-                  backgroundImage: `url(${
-                    fullImage.childImageSharp
-                      ? fullImage.childImageSharp.fluid.src
-                      : fullImage
-                  })`,
-                }}
-              />
-              <h2 className='has-text-weight-semibold is-size-2'>
-                {pricing.heading}
-              </h2>
-              <p className='is-size-5'>{pricing.description}</p>
-              <Pricing data={pricing.plans} />
-            </div>
-          </div>
-        </div>
+        <h2 className='has-text-weight-semibold is-size-2'>
+          {pricing.heading}
+        </h2>
+        <p className='is-size-5'>{pricing.description}</p>
+        <Pricing data={pricing.plans} />
       </div>
     </section>
   </div>
