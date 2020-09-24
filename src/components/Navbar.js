@@ -66,7 +66,11 @@ const Navbar = class extends React.Component {
               <Link className='navbar-item' to='/about'>
                 À Propos
               </Link>
-              <Link to='/' className='navbar-item' title='Logo'>
+              <Link
+                to='/'
+                className='navbar-item  is-hidden-mobile is-hidden-tablet'
+                title='Logo'
+              >
                 <img
                   className='navbar-brand-image'
                   src={logo}
