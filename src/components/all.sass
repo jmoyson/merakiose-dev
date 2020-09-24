@@ -13,8 +13,22 @@ $black: #2b2523
 .navbar-brand.left-burger .navbar-burger
   margin-left: 0
 
+// .navbar .container
+//   max-width: none
+//   margin-left: 1em
+//   margin-right: 1em
+
 .navbar .navbar-menu
   box-shadow: none !important
+
+.navbar-start
+  flex: 1
+
+.navbar-center
+  @extend .navbar-start
+
+.navbar-end
+  flex: 1
 
 .content .taglist
   list-style: none
