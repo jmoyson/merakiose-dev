@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import logo from "../img/logo.png"
+import { drop } from "lodash"
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ const Navbar = class extends React.Component {
     this.state = {
       active: false,
       navBarActiveClass: "",
+      blogCategoryClass: "",
     }
   }
 
@@ -26,6 +28,26 @@ const Navbar = class extends React.Component {
             })
           : this.setState({
               navBarActiveClass: "",
+            })
+      }
+    )
+  }
+
+  toggleBlogCategory = () => {
+    // toggle the active boolean in the state
+    this.setState(
+      {
+        blogCategory: !this.state.blogCategory,
+      },
+      // after state has been updated,
+      () => {
+        // set the class in state for the navbar accordingly
+        this.state.active
+          ? this.setState({
+              blogCategoryClass: "is-active",
+            })
+          : this.setState({
+              blogCategoryClass: "",
             })
       }
     )
@@ -68,15 +90,22 @@ const Navbar = class extends React.Component {
               </Link>
               <Link to='/' className='navbar-item hide-mobile' title='Logo'>
                 <img
-                  className='navbar-brand-image'
+                  className='navbar-brand-image '
                   src={logo}
                   alt='MerakiOse'
                   style={{ width: "176px" }}
                 />
               </Link>
-              <Link className='navbar-item' to='/blog'>
-                Blog
-              </Link>
+              <div className='navbar-item has-dropdown is-hoverable' style={{ alignItems: "center" }}>
+                <Link className='navbar-link dropdown-trigger navbar-dropdown-trigger' to='/blog'>
+                  Blog
+                </Link>
+                <div className='navbar-dropdown'>
+                  <a className='navbar-item'>Category 1</a>
+                  <a className='navbar-item'>Category 2</a>
+                  <a className='navbar-item'>Category 3</a>
+                </div>
+              </div>
 
               <Link className='navbar-item' to='/products'>
                 Coaching

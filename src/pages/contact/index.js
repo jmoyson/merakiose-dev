@@ -21,29 +21,20 @@ export default class Index extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error))
+    navigate(form.getAttribute('action'))
   }
 
   render() {
     return (
       <Layout>
-        <section className="section">
+        <section className="section" style={{marginTop: "90px"}}>
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
               <form
                 name="contact"
                 method="post"
-                action="/contact/thanks/"
+                action="/contact/merci/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
@@ -58,7 +49,7 @@ export default class Index extends React.Component {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor={'name'}>
-                    Your name
+                    Nom et Prénom
                   </label>
                   <div className="control">
                     <input
@@ -102,7 +93,7 @@ export default class Index extends React.Component {
                 </div>
                 <div className="field">
                   <button className="button is-link" type="submit">
-                    Send
+                    Envoyer
                   </button>
                 </div>
               </form>

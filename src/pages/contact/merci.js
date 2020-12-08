@@ -4,10 +4,10 @@ import Layout from '../../components/Layout'
 export default () => (
   <Layout>
     <section className="section">
-      <div className="container">
-        <div className="content">
-          <h1>Thank you!</h1>
-          <p>This is a custom thank you page for form submissions</p>
+      <div className="container" style={{marginTop: "90px"}}>
+        <div className="content has-text-centered">
+          <h1>Merci!</h1>
+          <p>Remerciements...</p>
         </div>
       </div>
     </section>

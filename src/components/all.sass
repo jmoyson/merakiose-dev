@@ -79,8 +79,6 @@ $black: #2b2523
 .margin-top-0
   margin-top: 0 !important
 
-.navbar-item .icon
-  color: $primary
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
   width: 1.5rem
@@ -88,25 +86,26 @@ $black: #2b2523
   fill: currentColor
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
-footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: $primary-invert
 
 //Menu overrides
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $meraki-bluegreen
-$menu-item-active-background-color:	$meraki-bluegreen
-$menu-list-border-left: 1px solid $meraki-bluegreen
-$menu-label-color: $white-ter
+// $menu-item-color: $white-ter
+// $menu-item-hover-color: $black !important
+// $menu-item-hover-background-color: $black
+// $menu-item-active-color: $meraki-bluegreen
+// $menu-item-active-background-color:	$meraki-bluegreen
+// $menu-list-border-left: 1px solid $meraki-bluegreen
+// $menu-label-color: $white-ter
 
 .menu-label
   font-size: 1em !important
   text-align: left
-.menu-list
-  list-style: none !important
-  text-align: left
+// .menu-list
+//   list-style: none !important
+//   margin: 0
+//   padding: 0
+//   overflow: hidden
+//   background-color: #333333
+//   display: inline
 
 .social
   padding: 2em
@@ -147,16 +146,18 @@ $menu-label-color: $white-ter
     margin: 0 0 1em
   .hero-column
     width: 100%
-  .second-hero-column
-    display: none !important
   .hide-mobile
     display: none
+  .navbar-center
+    text-align: left
 
 +tablet
   .hero-column
     width: 100%
   .hide-mobile
     display: none
+  .navbar-center
+    text-align: left
 
 +desktop
   .navbar-brand
@@ -165,22 +166,28 @@ $menu-label-color: $white-ter
     width: 50%
   .hide-mobile
     display: block
+  .hide-desktop
+    display: none
 
 .navbar-item img
   max-height: none
 
 .hero-column
   height: 100%
-  padding: .5rem
   backdrop-filter: blur(9px)
   display: flex
   align-items: center
   justify-content: center
+  margin: 0
+  padding: 0
 
 .full-hero-column
-  backdrop-filter: blur(9px)
-  width: 100%
-  height: 100%
+  background-size: cover
+  -webkit-filter: blur(4px)
+  -moz-filter: blur(4px)
+  -ms-filter: blur(4px)
+  -o-filter: blur(4px)
+  filter: blur(4px)
   display: flex
   justify-content: center
   align-items: center
@@ -189,3 +196,40 @@ $menu-label-color: $white-ter
   color: white
   padding: 2rem 4rem
   backdrop-filter: blur(6px)
+
+footer.footer
+  padding: 3rem 0rem 0rem
+  background-color: $primary-invert
+  hr
+    margin: 3rem 6rem
+    background-color:
+    height: 1px
+  a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active
+    color: #363636
+    background-color: transparent !important
+
+.is-hoverable:hover
+  @extend .is-active
+
+.newsletter
+  color: #fff
+  outline: none
+  border: none
+  border-bottom: 2px solid #fff
+  background-color: transparent
+  box-shadow: none
+  border-radius: 0
+  appearance: none
+  -webkit-appearance: none
+  -webkit-text-fill-color: #fff
+
+.newsletter-btn
+  color: $meraki-bronze
+  outline: none
+  border: none
+  border-bottom: 2px solid $meraki-bronze
+  background-color: transparent
+  box-shadow: none
+  border-radius: 0
+  appearance: none
+  -webkit-text-fill-color: $meraki-bronze

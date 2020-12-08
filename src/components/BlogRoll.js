@@ -10,38 +10,11 @@ class BlogRoll extends React.Component {
 
     return (
       <div className='columns is-multiline'>
-        <div className='is-parent column is-3 '>
-          <h1>Texte a propos du blog...</h1>
-          <p>Bla bla bla bla bla bla bla......................</p>
-          <hr
-            style={{
-              marginTop: "2rem",
-            }}
-          />
-          <h3>S'abbonner :</h3>
-          <ul
-            style={{
-              listStyle: "none",
-              textAlign: "left",
-            }}
-          >
-            <li>
-              <Link className='button' to='#'>
-                ✉️ &nbsp; E-Mail
-              </Link>
-            </li>
-            <li>
-              <Link className='button' to='#'>
-                🔔 &nbsp; Notification
-              </Link>
-            </li>
-          </ul>
-        </div>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className='is-parent column is-3 ' key={post.id}>
+            <div className='is-parent column is-3' key={post.id}>
               <article
-                className={` tile is-child box notification ${
+                className={`tile is-child ${
                   post.frontmatter.featuredpost ? "is-featured" : ""
                 }`}
               >
@@ -56,28 +29,18 @@ class BlogRoll extends React.Component {
                       />
                     </div>
                   ) : null}
-                  <p className='post-meta'>
+                  <p className='post-meta'
+                  style={{
+                    marginTop: "1em"
+                  }}>
                     <Link
-                      className='title has-text-primary is-size-4'
+                      className='title is-size-4'
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <br />
-                    <span className='subtitle is-size-6 is-block'>
-                      {post.frontmatter.date}
-                    </span>
                   </p>
                 </header>
-                <hr />
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className='button' to={post.fields.slug}>
-                    Lire l'article →
-                  </Link>
-                </p>
               </article>
             </div>
           ))}
